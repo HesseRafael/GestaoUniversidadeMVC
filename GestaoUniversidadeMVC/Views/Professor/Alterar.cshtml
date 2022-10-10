@@ -1,0 +1,32 @@
+﻿@model ProfessorModel;
+@{
+    ViewData["Title"] = "Alterar Professor";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Alterar Professor</h1>
+</div>
+
+
+<form asp-controller="Professor" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome Completo do Professor</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome completo do Professor">
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail do Professor</label>
+        <input type="email" asp-for="Email" class="form-control" placeholder="Digite o E-mail do Professor">
+    </div>
+
+    <div class="mb-3">
+        <label for="idade" class="form-label">Idade do Professor</label>
+        <input type="text" asp-for="Idade" class="form-control" placeholder="Digite a idade do Professor">
+    </div>
+
+    <button type="submit" class="btn btn-outline-success">Alterar</button>
+    <a role="button" class="btn btn-outline-primary" asp-controller="Professor" asp-action="Index">Voltar</a>
+</form>
+

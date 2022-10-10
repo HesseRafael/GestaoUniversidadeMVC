@@ -1,0 +1,11 @@
+﻿@model AlunoModel;
+@{
+    ViewData["Title"] = "Excluir Aluno";
+}
+
+
+<div class="text-center">
+    <h3>Realmente deseja excluir o Aluno @Model.Nome ?</h3>
+    <a role="button" class="btn btn-outline-success btn-block" asp-controller="Aluno" asp-action="ExcluirDb" asp-route-id="@Model.Id">Confirmar Exclusão</a>
+    <a role="button" class="btn btn-outline-danger btn-block" asp-controller="Aluno" asp-action="Index">Cancelar</a>
+</div>

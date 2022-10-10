@@ -1,0 +1,43 @@
+﻿@model List<CursoModel>
+@{
+    ViewData["Title"] = "Listagem de Cursos";
+}
+
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a role="button" class="btn btn-outline-success" asp-controller="Cursos" asp-action="Adicionar">Adicionar novo Curso</a>
+    </div>
+    <br />
+    <h1 class="display-4">Listagem de Cursos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Local</th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @if (Model != null && Model.Any())
+            {
+                foreach (CursoModel curso in Model)
+                {
+                    <tr>
+                        <th scope="row">@curso.Id</th>
+                        <td>@curso.Nome</td>
+                        <td>@curso.Local</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Acoes">
+                                <a role="button" class="btn btn-outline-primary" asp-route-id="@curso.Id" asp-controller="Cursos" asp-action="Alterar">Alterar</a>
+                                <a role="button" class="btn btn-outline-danger" asp-route-id="@curso.Id" asp-controller="Cursos" asp-action="Excluir">Excluir</a>
+                                <a role="button" class="btn btn-outline-warning" asp-route-id="@curso.Id" asp-controller="Cursos" asp-action="Alterar">Disciplinas</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,26 @@
+﻿@model CursoModel;
+@{
+    ViewData["Title"] = "Alterar Cursos";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Alterar Curso</h1>
+</div>
+
+
+<form asp-controller="Cursos" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome do Curso</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do Curso">
+    </div>
+
+    <div class="mb-3">
+        <label for="local" class="form-label">Local do Curso</label>
+        <input type="text" asp-for="Local" class="form-control" placeholder="Digite o Local do curso">
+    </div>
+    <button type="submit" class="btn btn-outline-success">Alterar</button>
+    <a role="button" class="btn btn-outline-primary" asp-controller="Cursos" asp-action="Index">Voltar</a>
+</form>
+

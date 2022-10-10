@@ -1,0 +1,44 @@
+﻿@model List<ProfessorModel>
+@{
+    ViewData["Title"] = "Listagem de Professores";
+}
+
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a role="button" class="btn btn-outline-success" asp-controller="Professor" asp-action="Adicionar">Adicionar novo Professor</a>
+    </div>
+    <br />
+    <h1 class="display-4">Listagem de Professor</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-Mail</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @if (Model != null && Model.Any())
+            {
+                foreach (ProfessorModel professor in Model)
+                {
+                    <tr>
+                        <th scope="row">@professor.Id</th>
+                        <td>@professor.Nome</td>
+                        <td>@professor.Email</td>
+                        <td>@professor.Idade</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Acoes">
+                                <a role="button" class="btn btn-outline-primary" asp-route-id="@professor.Id" asp-controller="Professor" asp-action="Alterar">Alterar</a>
+                                <a role="button" class="btn btn-outline-danger" asp-route-id="@professor.Id" asp-controller="Professor" asp-action="Excluir">Excluir</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
